@@ -1,9 +1,15 @@
+using System.Data.Entity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Get Connection String for Database.
+var connectionString = builder.Configuration.GetConnectionString("RundownEDU");
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
