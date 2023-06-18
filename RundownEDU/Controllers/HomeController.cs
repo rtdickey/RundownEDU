@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RundownEDU.Models;
+using RundownEDU.ViewModels;
 using System.Diagnostics;
 
 namespace RundownEDU.Controllers

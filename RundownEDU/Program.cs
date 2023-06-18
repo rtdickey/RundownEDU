@@ -1,12 +1,21 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using RundownEDU.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Get Connection String for Database.
+
+//// Get Connection String for Database.
 var connectionString = builder.Configuration.GetConnectionString("RundownEDU");
+if (!String.IsNullOrWhiteSpace(connectionString))
+{
+	builder.Services.AddDbContext<RundownDbContext>(options =>
+	{
+		options.UseSqlServer(connectionString);
+	});
+}
 
 var app = builder.Build();
 
