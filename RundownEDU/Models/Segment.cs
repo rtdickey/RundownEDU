@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RundownEDU.Models;
 
-public class Segment
+public class Segment: ISegment
 {
     [Key]
     public int Id { get; private set; }
